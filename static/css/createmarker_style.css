@@ -1,0 +1,14 @@
+body{
+	margin-top: 60px;
+}
+.container {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+form{
+	margin-right: 20px;
+}
+.fileform{
+	padding-top: 0;
+}
