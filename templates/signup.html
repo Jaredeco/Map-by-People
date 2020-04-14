@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Sign Up
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{url_for('.static', filename='css/signin.css')}}">
+<link rel="stylesheet" href="{{url_for('.static', filename='css/signin.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="{{url_for('.static', filename='css/m_info/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{url_for('.static', filename='css/m_info/animate.css')}}">
+<link rel="stylesheet" href="{{url_for('.static', filename='css/m_info/slick.css')}}">
+<link rel="stylesheet" href="{{url_for('.static', filename='css/m_info/slicknav.css')}}">
+<link rel="stylesheet" href="{{url_for('.static', filename='css/m_info/style.css')}}">
+{% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Your Places</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Map</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/marker_info">Places</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+  <form class="form-signin" method="POST" action="/signup">
+    <h2 class="form-signin-heading">Sign Up</h2>
+    {{ form.hidden_tag() }}
+    {{ wtf.form_field(form.username) }}
+    {{ wtf.form_field(form.email) }}
+    {{ wtf.form_field(form.password) }}
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+  </form>
+
+{% block scripts %}
+{% endblock %}
+{% endblock %}
