@@ -1,0 +1,87 @@
+{%extends "base.html"%}
+{%block title%}{{item.name}}{% endblock%}
+
+{%block styles%}{%endblock%}
+{%block content%}
+
+ <div class="destination_banner_wrap overlay">
+        <div class="destination_text text-center">
+            <h3>{{item.name}}</h3>
+            <p>{{item.address}}</p>
+        </div>
+    </div>
+
+    <div class="destination_details_info">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-9">
+                    <div class="destination_info">
+                        <h3>Description</h3>
+                        <p>{{item.content}}</p>
+                    <div class="bordered_1px"></div>
+                        <div class="comments-area">
+                        <div class="navigation-top">
+                          <div class="d-sm-flex justify-content-between text-center">
+                             <p class="like-info"><span class="align-middle"><a href="#" style="color: green;">Like</a> <a href="#" style="color: red; margin-left: 50px;">Dislike</a></span></p>
+
+                             <div class="col-sm-4 text-center my-2 my-sm-0">
+                                <p class="comment-count"><span class="align-middle"></span>0 Likes</p>
+                             </div>
+                          </div>
+                          <h4 style="margin-top: 80px;">05 Comments</h4>
+                          {%for cmmnt in commnts%}
+                          <div class="comment-list">
+                               <div class="single-comment justify-content-between d-flex">
+                                    <div class="user justify-content-between d-flex">
+                                       <div class="thumb">
+                                          <img src="https://i.pinimg.com/originals/fd/0c/55/fd0c559856ca991e9e28937dc802f0b0.png" alt="">
+                                       </div>
+                                       <div class="desc">
+                                          <p class="comment">
+                                             {{cmmnt.text}}
+                                          </p>
+                                          <div class="d-flex justify-content-between">
+                                             <div class="d-flex align-items-center">
+                                                <h5>
+                                                   {{cmmnt.author}}
+                                                </h5>
+                                                <p class="date">{{cmmnt.timestamp}}</p>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 </div>
+                               {%endfor%}
+                          
+
+                       <div class="comment-form" >
+                          <h4>Leave a Reply</h4>
+                          <form class="form-contact comment_form" action="/marker_page/{{item.id}}" method="POST" name="comment" id="commentForm">
+                             <div class="row">
+                                <div class="col-12">
+                                   <div class="form-group">
+                                      <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
+                                         placeholder="Write Comment"></textarea>
+                                   </div>
+                                </div>
+                             <div class="form-group">
+                                <button type="submit" class="button button-contactForm btn_1 boxed-btn">Send Message</button>
+                             </div>
+                          </form>
+                       </div>
+                    </div>
+                   
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{%block scripts%}{%endblock%}
+{%endblock%}
